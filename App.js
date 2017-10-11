@@ -5,7 +5,8 @@
  */
 //
 import React from 'react';
-import { Text } from 'react-native';
+import { } from 'react-native';
+import Header from './src/components/Header';
 // import {
 //   Platform,
 //   StyleSheet,
@@ -21,8 +22,7 @@ import { Text } from 'react-native';
 // });
 
 const App = () => (
-    <Text>Some text
-    </Text>
+    <Header headerText={'Albums'} />
   );
 
 
