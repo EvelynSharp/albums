@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-//import axios from 'axios';
-import { backupdata } from '../backupdata';
+import { ScrollView } from 'react-native';
+import axios from 'axios';
 import AlbumDetail from './AlbumDetail';
 
 class AlbumList extends React.Component {
@@ -9,9 +8,10 @@ class AlbumList extends React.Component {
   state = { albums: [] };
 
   componentWillMount() {
-    // axios.get('http://rallycoding.herokuapp.com/api/music_albums')
-    //   .then(res => console.log(res))
-    this.setState({ albums: backupdata })
+    axios.get('https://rallycoding.herokuapp.com/api/music_albums')
+      .then(res => this.setState({ albums: res.data}))
+      .catch(err => console.log(err))
+
   }
 
   renderAlbums = () => {
@@ -20,9 +20,9 @@ class AlbumList extends React.Component {
 
   render() {
     return (
-      <View>
+      <ScrollView>
         {this.renderAlbums()}
-      </View>
+      </ScrollView>
     );
   }
 }
